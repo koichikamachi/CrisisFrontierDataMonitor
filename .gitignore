@@ -1,0 +1,60 @@
+# 環境変数
+.env
+
+# データベース（バックアップ含む全パターン）
+data/crisis_frontier.db
+data/crisis_frontier.db-journal
+data/crisis_frontier.db.*
+
+# 出力物（生成されるもの全て）
+outputs/html/images/
+outputs/html/csv/
+outputs/html/index.html
+outputs/html/jp/
+outputs/html/us/
+outputs/html/th/
+outputs/html/indicator/
+outputs/html/data-paths/
+# 旧パスの掃除残し
+outputs/images/
+outputs/csv/
+
+# ログ
+logs/*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+
+# OS
+desktop.ini
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+.ipynb_checkpoints/
+
+# Claude Code ローカル設定（個人マシン依存）
+.claude/
+
+# Anaconda Navigator の自動生成
+anaconda_projects/
+
+# 一時ファイル（docx抽出等の中間成果物）
+docs/_*.txt
+
+# 注：outputs/html/css/site.css は手書きのソースコードのため追跡する
+
+# 追加の安全策（将来の拡張用）
+*.db
+*.sqlite
+*.log
+
+# 不要なものの混在除去
+private/
