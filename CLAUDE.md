@@ -1,6 +1,11 @@
 CLAUDE.md
 
 
+> **訪問者の方へ**: このファイルは Claude Code（Anthropic の開発支援AI）に対する作業指示書である。プロジェクトの説明や使い方については [README.md](README.md) を参照されたい。
+
+---
+
+
 
 \# Crisis Frontier Global Data Monitor
 
