@@ -100,6 +100,12 @@ indicators_global:
       水準だけでなく、短期対外債務との比率や為替の動きと併せて
       観察することが重要である。
 
+      米国は国際基軸通貨の発行国であるため、外貨準備（金を除く、
+      約350〜400億ドル）はGDP比で極めて小さく、ほぼフラットに推移する。
+      日本やタイのような対外危機への耐性指標としての意味は限定的であり、
+      米国の対外金融ストレスを観察する場合は、FRBのUSDスワップライン残高
+      （FRED系列：SWPT）を別途参照することが推奨される。
+
   - id: central_bank_total_assets
     label: 中央銀行総資産
     display_order: 6
@@ -111,6 +117,10 @@ indicators_global:
       中央銀行総資産は各国中央銀行が定期的に公表する。
       米国では連邦準備制度、日本では日本銀行、
       ユーロ圏では欧州中央銀行が公表主体である。
+
+      米国の中央銀行総資産系列（WALCL）は2002年12月以降が利用可能であり、
+      それ以前は本データ基盤では表示できない。
+      2008年金融危機以降の量的緩和（QE）局面の観察に最も適している。
     how_to_read: |
       総資産の増加は金融緩和や危機対応による資金供給を意味する。
       急激な拡大は金融不安や景気後退への対応として現れることが多い。
@@ -141,7 +151,7 @@ indicators_country_specific: {}
 # =============================================================
 #
 # 国 × 指標ごとに、どこから取得するかを定義する。
-# frequency は「日次」「月次」「四半期」「年次」のいずれか。
+# frequency は「日次」「週次」「月次」「四半期」「年次」のいずれか。
 # 指標カードのメタ行に表示し、粒度の違いによる誤読を防ぐ。
 
 data_sources:
@@ -175,6 +185,42 @@ data_sources:
     source: worldbank
     series_id: FI.RES.TOTL.CD
     frequency: 年次
+
+  - country_id: jp
+    indicator_id: bond_10y
+    source: fred
+    series_id: IRLTLT01JPM156N
+    frequency: 月次
+
+  - country_id: jp
+    indicator_id: fx_reserves
+    source: fred
+    series_id: TRESEGJPM052N
+    frequency: 月次
+
+  - country_id: us
+    indicator_id: bond_10y
+    source: fred
+    series_id: DGS10
+    frequency: 日次
+
+  - country_id: us
+    indicator_id: cpi
+    source: fred
+    series_id: CPIAUCNS
+    frequency: 月次
+
+  - country_id: us
+    indicator_id: fx_reserves
+    source: fred
+    series_id: TRESEGUSM052N
+    frequency: 月次
+
+  - country_id: us
+    indicator_id: central_bank_total_assets
+    source: fred
+    series_id: WALCL
+    frequency: 週次
 
 
 # =============================================================
