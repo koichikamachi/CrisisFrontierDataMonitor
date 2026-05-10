@@ -17,6 +17,7 @@ BASE_PYTHON = r"C:\Users\koich\anaconda3\python.exe"
 STEPS = [
     ("fetch", SCRIPTS_DIR / "fetch_data.py", BASE_PYTHON),
     ("fetch_wb", SCRIPTS_DIR / "fetch_worldbank.py", sys.executable),
+    ("fetch_imf", SCRIPTS_DIR / "fetch_imf.py", sys.executable),
     ("charts", SCRIPTS_DIR / "build_charts.py", BASE_PYTHON),
     ("html", SCRIPTS_DIR / "export_html.py", sys.executable),
 ]

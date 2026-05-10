@@ -12,6 +12,8 @@
 #
 # source_note は一次源のみ。再配信経路（FRED, World Bank 等）は
 # /data-paths/ ページで一括説明する。
+#
+# IMF SDMX 系列の series_id は "{dataflow}/{key}" 形式（例: MFS_IR/THA.DISR_RT_PT_A_PT.M）
 
 # =============================================================
 # 1. コア指標定義（全国共通）
@@ -221,6 +223,24 @@ data_sources:
     source: fred
     series_id: WALCL
     frequency: 週次
+
+  - country_id: th
+    indicator_id: policy_rate
+    source: imf
+    series_id: MFS_IR/THA.DISR_RT_PT_A_PT.M
+    frequency: 月次
+
+  - country_id: jp
+    indicator_id: central_bank_total_assets
+    source: imf
+    series_id: MFS_CBS/JPN.S121_A_TA_ASEC_CB1SR.XDC.M
+    frequency: 月次
+
+  - country_id: th
+    indicator_id: central_bank_total_assets
+    source: imf
+    series_id: MFS_CBS/THA.S121_A_TA_ASEC_CB1SR.XDC.M
+    frequency: 月次
 
 
 # =============================================================
