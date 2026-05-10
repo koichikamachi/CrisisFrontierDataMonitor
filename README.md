@@ -199,5 +199,5 @@ https://github.com/koichikamachi/CrisisFrontierDataMonitor
 
 BKW研究所
 
-- ウェブサイト: [bookkeepingwhisperer.org](https://bookkeepingwhisperer.org)
+- ウェブサイト: [bookkeepingwhisperer.org](https://bookkeepingwhisperer.org)、[kamachi.org](https://kamachi.org)
 - リポジトリ: [github.com/koichikamachi/CrisisFrontierDataMonitor](https://github.com/koichikamachi/CrisisFrontierDataMonitor)
