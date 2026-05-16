@@ -195,21 +195,42 @@ def render_summary_table(summary: dict) -> str:
     )
 
 
-def render_indicator_card(indicator_def: dict) -> str:
-    """description / source_note / how_to_read の三層カード。"""
+def render_indicator_card(indicator_def: dict, country_id: str | None = None) -> str:
+    """description / source_note / how_to_read の三層カード。
+
+    country_id を指定すると、indicator_def の以下のフィールドから
+    対応する国向けの追加段落を取り出し、それぞれのレイヤ末尾に追記する。
+      - source_note_country_specific:  { us|jp|th: "..." }
+      - how_to_read_country_specific:  { us|jp|th: "..." }
+    country_id=None（指標横断ページなど）の場合は追記なし、universal text のみ。
+    """
+    description = indicator_def["description"].strip()
+    source_note = indicator_def["source_note"].strip()
+    how_to_read = indicator_def["how_to_read"].strip()
+
+    if country_id:
+        sn_specific = indicator_def.get("source_note_country_specific") or {}
+        extra_sn = sn_specific.get(country_id)
+        if extra_sn:
+            source_note = source_note + "\n\n" + extra_sn.strip()
+        hr_specific = indicator_def.get("how_to_read_country_specific") or {}
+        extra_hr = hr_specific.get(country_id)
+        if extra_hr:
+            how_to_read = how_to_read + "\n\n" + extra_hr.strip()
+
     return (
         '<div class="indicator-card">'
         '<div class="layer">'
         '<span class="layer-label">これは何か</span>'
-        f'<div class="layer-body">{html.escape(indicator_def["description"].strip())}</div>'
+        f'<div class="layer-body">{html.escape(description)}</div>'
         '</div>'
         '<div class="layer">'
         '<span class="layer-label">誰が出しているか</span>'
-        f'<div class="layer-body">{html.escape(indicator_def["source_note"].strip())}</div>'
+        f'<div class="layer-body">{html.escape(source_note)}</div>'
         '</div>'
         '<div class="layer">'
         '<span class="layer-label">どう読むか</span>'
-        f'<div class="layer-body">{html.escape(indicator_def["how_to_read"].strip())}</div>'
+        f'<div class="layer-body">{html.escape(how_to_read)}</div>'
         '</div>'
         '</div>'
     )
@@ -257,7 +278,7 @@ def render_indicator_block(
                 '</div>'
             )
         # 指標カードはプレースホルダでも表示する（観測マニュアルとしての意味があるため）
-        parts.append(render_indicator_card(indicator_def))
+        parts.append(render_indicator_card(indicator_def, country["id"]))
         return f'<section class="indicator-block">{"".join(parts)}</section>'
 
     # データあり
@@ -296,7 +317,7 @@ def render_indicator_block(
         '</div>'
     )
 
-    parts.append(render_indicator_card(indicator_def))
+    parts.append(render_indicator_card(indicator_def, country["id"]))
     return f'<section class="indicator-block">{"".join(parts)}</section>'
 
 
