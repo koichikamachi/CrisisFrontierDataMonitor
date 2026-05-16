@@ -21,15 +21,3 @@ country_id 引数で出し分ける形に改修する。
 
 優先度：中（第一波・第二波が落ち着いてから整備フェーズで対応）
 
-## (E) export_html.py の source 表示マッピングに imf/oecd/bis を追加
-
-各指標カードの「出典:」メタ行で、`fred` は `FRED`、`worldbank` は `World Bank` と
-整形表示されるが、`imf` / `oecd` / `bis` は小文字のまま表示される
-（例：`出典: imf (MFS_CBS/...)`）。第二波の IMF 統合時から存在する既存挙動。
-
-解決策：export_html.py の source 表示マッピング辞書に次を追加：
-- imf → "IMF SDMX"
-- oecd → "OECD SDMX"
-- bis → "BIS SDMX"
-
-優先度：低（表記の整合性向上のみ。データの正確性には影響なし）

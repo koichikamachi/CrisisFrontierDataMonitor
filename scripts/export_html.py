@@ -33,6 +33,9 @@ CSV_DIR = HTML_DIR / "csv"
 SOURCE_LABELS = {
     "fred": "FRED",
     "worldbank": "World Bank",
+    "imf": "IMF SDMX",
+    "oecd": "OECD SDMX",
+    "bis": "BIS SDMX",
 }
 
 # 国メタ（日本語名と英名）
