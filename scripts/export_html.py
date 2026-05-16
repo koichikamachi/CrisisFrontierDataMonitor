@@ -537,7 +537,7 @@ def render_data_paths_page(data_sources: list[dict], today: str) -> str:
 
         '<h2>本ページの位置づけ</h2>'
         '<p>各指標の <em>source_note</em> には、データの一次源（中央銀行・財務省・統計局など）のみを記載しています。'
-        '本サイトが実際に取得経路として利用している再配信元（FRED、World Bank など）の説明は、本ページに集約します。'
+        '本サイトが実際に取得経路として利用している再配信元（FRED、World Bank、IMF SDMX、OECD SDMX、BIS SDMX）の説明は、本ページに集約します。'
         '一次源と再配信元の役割を分けることで、データの権威性と取得経路の利便性を切り分けて理解できるようにする趣旨です。</p>'
 
         '<h2>FRED（Federal Reserve Economic Data）</h2>'
@@ -554,6 +554,24 @@ def render_data_paths_page(data_sources: list[dict], today: str) -> str:
         '本サイトでは、タイの外貨準備高（FI.RES.TOTL.CD：金を含む年次値、米ドル建て）の取得に利用しています。'
         'World Bank も中継機関であり、原データは各国中央銀行が提出した値です。</p>'
 
+        '<h2>IMF SDMX（国際通貨基金 統計データ）</h2>'
+        '<p>IMF SDMX は、国際通貨基金（IMF）統計局が提供する SDMX 2.1 規格の API です。'
+        '本サイトでは、タイの政策金利（MFS_IR：公定歩合）、日本・タイの中央銀行総資産（MFS_CBS：S121_A_TA_ASEC_CB1SR）、'
+        'タイの10年国債利回り（MFS_IR：S13BOND_RT_PT_A_PT）を取得しています。'
+        '旧来の「IFS」という単一データセットは存在せず、現在はトピック別の193データフロー'
+        '（CPI、MFS_IR、MFS_CBS、IRFCL など）に分割されています。国コードは alpha-3（JPN、THA）を使用します。</p>'
+
+        '<h2>OECD SDMX（経済協力開発機構 統計データ）</h2>'
+        '<p>OECD SDMX は、OECD 統計局が提供する SDMX 2.1 規格の API（SDMX-JSON 形式）です。'
+        '本サイトでは、日本の消費者物価指数（DSD_PRICES_COICOP2018：COICOP 2018 分類、月次、Index 2015=100）を取得しています。'
+        '主に OECD 加盟国の系列を集約しており、タイは加盟国でないため OECD 経由では取得していません。</p>'
+
+        '<h2>BIS SDMX（国際決済銀行 統計データ）</h2>'
+        '<p>BIS SDMX は、国際決済銀行（BIS）が各国中央銀行と共同で編纂する長期統計の API（SDMX 2.1 XML 形式）です。'
+        '本サイトでは、タイの消費者物価指数（WS_LONG_CPI：月次、Index 2010=100、UNIT_MEASURE=628）を取得しています。'
+        'BIS の長期 CPI 系列はタイを 1976 年以降カバーしており、1997 年アジア通貨危機期の物価動向を月次粒度で観察できる'
+        '点が特徴です。国コードは alpha-2（JP、TH）を使用するため IMF / OECD と異なります。</p>'
+
         '<h2>頻度の読み方</h2>'
         '<p>各系列の更新頻度は、指標カードのメタ行と下表「頻度」列に明記しています。読み方の目安は次のとおりです。</p>'
         '<ul>'
@@ -569,11 +587,13 @@ def render_data_paths_page(data_sources: list[dict], today: str) -> str:
         f'{table_html}'
 
         '<h2>将来追加予定の経路</h2>'
-        '<p>以下の経路はフェーズ4以降で順次追加予定です（プレースホルダ）。</p>'
+        '<p>以下は国別参考指標（indicators_country_specific）の整備に伴い追加が検討される経路です。'
+        '本フェーズには含めず、ニーズが具体化した時点で実装します。</p>'
         '<ul>'
-        '<li>BIS（国際決済銀行）：信用GDP乖離率、対外債務統計</li>'
-        '<li>IMF（国際通貨基金）：International Financial Statistics（IFS）</li>'
-        '<li>OECD：主要経済指標（MEI）</li>'
+        '<li>e-Stat（日本：総務省統計局）：日本固有の系列（生鮮食品を除くコアCPI、所得階層別 CPI など）の取得。'
+        '利用には appId（無償）の事前登録が必要。</li>'
+        '<li>TPSO（タイ：商務省貿易政策戦略局, index-api.tpso.go.th）：タイ固有の系列'
+        '（一般／低所得／非都市部の所得階層別 CPI、地方別 CPIP など）の取得。利用には API キーの事前照会が必要。</li>'
         '</ul>'
 
         '</main>'

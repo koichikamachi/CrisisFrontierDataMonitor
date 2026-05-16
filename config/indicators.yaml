@@ -71,6 +71,13 @@ indicators_global:
       短期金利との差（利回り曲線）も重要な情報であり、
       長期金利が短期金利を下回る状態は景気後退の前兆とされることがある。
 
+      タイの10年国債利回りは、国内10年国債のベンチマークが
+      1998-1999年の財政再建過程で再構築された経緯により、
+      本データ基盤では1999年9月以降のみを表示する。
+      1997年アジア通貨危機期のタイの金融逼迫を観察したい場合は、
+      本データ基盤の th/policy_rate
+      （タイ中央銀行公定歩合、1990年以降）を併せて参照されたい。
+
   - id: cpi
     label: 消費者物価指数（CPI）
     display_order: 4
@@ -86,6 +93,12 @@ indicators_global:
       CPI の上昇率が高い場合はインフレ圧力の増加を意味する。
       単月の変動よりも、数か月から1年の傾向を観察することが重要である。
       金利や為替と合わせて見ることで、政策の影響を理解しやすくなる。
+
+      本データ基盤では各国とも「総合CPI（headline）」を採用している。
+      日本固有の「コアCPI」（生鮮食品を除く総合）や、
+      タイの所得階層別CPI（一般／低所得／非都市部）は将来の
+      国別参考指標（indicators_country_specific）として
+      別途整備する余地がある。
 
   - id: fx_reserves
     label: 外貨準備高
@@ -253,6 +266,24 @@ data_sources:
     indicator_id: central_bank_total_assets
     source: imf
     series_id: MFS_CBS/THA.S121_A_TA_ASEC_CB1SR.XDC.M
+    frequency: 月次
+
+  - country_id: jp
+    indicator_id: cpi
+    source: oecd
+    series_id: OECD.SDD.TPS,DSD_PRICES_COICOP2018@DF_PRICES_C2018_ALL/JPN.M.N.CPI.IX._T.N._Z
+    frequency: 月次
+
+  - country_id: th
+    indicator_id: cpi
+    source: bis
+    series_id: WS_LONG_CPI/M.TH
+    frequency: 月次
+
+  - country_id: th
+    indicator_id: bond_10y
+    source: imf
+    series_id: MFS_IR/THA.S13BOND_RT_PT_A_PT.M
     frequency: 月次
 
 

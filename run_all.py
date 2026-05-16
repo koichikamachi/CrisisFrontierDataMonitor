@@ -18,6 +18,8 @@ STEPS = [
     ("fetch", SCRIPTS_DIR / "fetch_data.py", BASE_PYTHON),
     ("fetch_wb", SCRIPTS_DIR / "fetch_worldbank.py", sys.executable),
     ("fetch_imf", SCRIPTS_DIR / "fetch_imf.py", sys.executable),
+    ("fetch_oecd", SCRIPTS_DIR / "fetch_oecd.py", sys.executable),
+    ("fetch_bis", SCRIPTS_DIR / "fetch_bis.py", sys.executable),
     ("charts", SCRIPTS_DIR / "build_charts.py", BASE_PYTHON),
     ("html", SCRIPTS_DIR / "export_html.py", sys.executable),
 ]
