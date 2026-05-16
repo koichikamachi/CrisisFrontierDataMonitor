@@ -21,19 +21,6 @@ country_id 引数で出し分ける形に改修する。
 
 優先度：中（第一波・第二波が落ち着いてから整備フェーズで対応）
 
-## (D) run_all.py の subprocess エンコーディング不整合
-
-run_all.py の `subprocess.run(..., encoding="cp932")` と、フェッチャ側の日本語 print
-出力（実体は UTF-8）が不整合で、`UnicodeDecodeError: 'cp932' codec can't decode ...`
-が各 STEP のログに出る。各 STEP の return code は 0 で動作には影響しないが、
-フェッチャの `"{n}件保存"` メッセージがログに記録されない。
-
-解決策：`encoding="cp932"` を `encoding="utf-8", errors="replace"` に変更する。
-Anaconda 環境・venv 環境とも標準で UTF-8 出力に揃えられているため、cp932 を
-維持する積極的理由はない。
-
-優先度：低（観察事項。動作には影響なし。デバッグログ整備時にまとめて対応）
-
 ## (E) export_html.py の source 表示マッピングに imf/oecd/bis を追加
 
 各指標カードの「出典:」メタ行で、`fred` は `FRED`、`worldbank` は `World Bank` と

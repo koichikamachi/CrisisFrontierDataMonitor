@@ -50,7 +50,8 @@ def run_step(logger: logging.Logger, name: str, script: Path, python_exe: str) -
             cwd=str(PROJECT_ROOT),
             capture_output=True,
             text=True,
-            encoding="cp932",
+            encoding="utf-8",
+            errors="replace",
         )
         if result.stdout:
             for line in result.stdout.rstrip().splitlines():
