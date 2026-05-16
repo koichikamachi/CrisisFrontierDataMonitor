@@ -35,6 +35,9 @@ desktop.ini
 .DS_Store
 Thumbs.db
 
+# Office (Word/Excel) 一時ロックファイル
+~$*
+
 # IDE
 .vscode/
 .idea/
