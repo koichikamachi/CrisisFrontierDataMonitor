@@ -78,6 +78,17 @@ indicators_global:
         1997年アジア通貨危機期のタイの金融逼迫を観察したい場合は、
         本データ基盤の th/policy_rate
         （タイ中央銀行公定歩合、1990年以降）を併せて参照されたい。
+      id: |
+        インドネシアの10年国債利回りは、本データ基盤が利用する公開API
+        （FRED / World Bank / IMF SDMX / OECD SDMX / BIS SDMX）の
+        いずれにも該当系列が確認できないため、データソース未確定の
+        空枠として表示している。一次源（Bank Indonesia 等）への
+        直接アクセスは、フェーズ5 以降の検討課題として
+        docs/future_extensions.md に記録されている。
+        1997年アジア通貨危機期のインドネシアの金融逼迫を観察したい場合は、
+        本データ基盤の id/policy_rate
+        （IMF SDMX Monetary policy-related rate、1990年以降）を
+        併せて参照されたい。
 
   - id: cpi
     label: 消費者物価指数（CPI）
