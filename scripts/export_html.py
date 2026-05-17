@@ -40,9 +40,12 @@ SOURCE_LABELS = {
 
 # 国メタ（日本語名と英名）
 COUNTRIES = [
-    {"id": "jp", "name_ja": "日本",   "name_en": "Japan"},
-    {"id": "us", "name_ja": "米国",   "name_en": "United States"},
-    {"id": "th", "name_ja": "タイ",   "name_en": "Thailand"},
+    {"id": "jp", "name_ja": "日本",         "name_en": "Japan"},
+    {"id": "us", "name_ja": "米国",         "name_en": "United States"},
+    {"id": "th", "name_ja": "タイ",         "name_en": "Thailand"},
+    {"id": "kr", "name_ja": "韓国",         "name_en": "South Korea"},
+    {"id": "id", "name_ja": "インドネシア", "name_en": "Indonesia"},
+    {"id": "my", "name_ja": "マレーシア",   "name_en": "Malaysia"},
 ]
 COUNTRY_BY_ID = {c["id"]: c for c in COUNTRIES}
 

@@ -295,6 +295,104 @@ data_sources:
     series_id: MFS_IR/THA.S13BOND_RT_PT_A_PT.M
     frequency: 月次
 
+  # --- フェーズ4 第一波（韓国・インドネシア・マレーシアの16枠）---
+
+  - country_id: kr
+    indicator_id: fx_usd
+    source: fred
+    series_id: DEXKOUS
+    frequency: 日次
+
+  - country_id: kr
+    indicator_id: policy_rate
+    source: imf
+    series_id: MFS_IR/KOR.DISR_RT_PT_A_PT.M
+    frequency: 月次
+
+  - country_id: kr
+    indicator_id: bond_10y
+    source: imf
+    series_id: MFS_IR/KOR.S13BOND_RT_PT_A_PT.M
+    frequency: 月次
+
+  - country_id: kr
+    indicator_id: cpi
+    source: bis
+    series_id: WS_LONG_CPI/M.KR
+    frequency: 月次
+
+  - country_id: kr
+    indicator_id: fx_reserves
+    source: fred
+    series_id: TRESEGKRM052N
+    frequency: 月次
+
+  - country_id: kr
+    indicator_id: central_bank_total_assets
+    source: imf
+    series_id: MFS_CBS/KOR.S121_A_TA_ASEC_CB1SR.XDC.M
+    frequency: 月次
+
+  - country_id: id
+    indicator_id: policy_rate
+    source: imf
+    series_id: MFS_IR/IDN.MFS166_RT_PT_A_PT.M
+    frequency: 月次
+
+  - country_id: id
+    indicator_id: cpi
+    source: bis
+    series_id: WS_LONG_CPI/M.ID
+    frequency: 月次
+
+  - country_id: id
+    indicator_id: fx_reserves
+    source: fred
+    series_id: TRESEGIDM052N
+    frequency: 月次
+
+  - country_id: id
+    indicator_id: central_bank_total_assets
+    source: imf
+    series_id: MFS_CBS/IDN.S121_A_TA_ASEC_CB1SR.XDC.M
+    frequency: 月次
+
+  - country_id: my
+    indicator_id: fx_usd
+    source: fred
+    series_id: DEXMAUS
+    frequency: 日次
+
+  - country_id: my
+    indicator_id: policy_rate
+    source: imf
+    series_id: MFS_IR/MYS.MMRT_RT_PT_A_PT.M
+    frequency: 月次
+
+  - country_id: my
+    indicator_id: bond_10y
+    source: imf
+    series_id: MFS_IR/MYS.S13BOND_RT_PT_A_PT.M
+    frequency: 月次
+
+  - country_id: my
+    indicator_id: cpi
+    source: bis
+    series_id: WS_LONG_CPI/M.MY
+    frequency: 月次
+
+  - country_id: my
+    indicator_id: fx_reserves
+    source: worldbank
+    series_id: FI.RES.TOTL.CD
+    frequency: 年次
+
+  - country_id: my
+    indicator_id: central_bank_total_assets
+    source: imf
+    series_id: MFS_CBS/MYS.S121_A_TA_ASEC_CB1SR.XDC.M
+    frequency: 月次
+
 
 # =============================================================
 # 4. 取得設定（共通）
